@@ -6,6 +6,17 @@ let todos = [
   new ToDo('Hausaufgaben machen', true),
 ];
 
+function Delete() 
+
+{ 
+  let offenetodos = todos.filter((offen) => !offen.erledigt) 
+  todos = offenetodos; 
+  updateToDoListOnScreen();   
+} 
+
+  clearErledigt.addEventListener("click", Delete()); 
+
+
 function updateToDoListOnScreen() {
   const todoListElement = document.getElementById('todolist');
 
@@ -23,6 +34,8 @@ function updateToDoListOnScreen() {
   const elementAnzahl = document.getElementById('anzahl');
   elementAnzahl.textContent = `${offeneToDos.length} ToDo's offen`;
 }
+
+
 
 document.addEventListener('DOMContentLoaded', (event) => {
   updateToDoListOnScreen();
